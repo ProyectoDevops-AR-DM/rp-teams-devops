@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: orders-service-deployment
+  name: orders-service-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: orders-service
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: orders-service
+    spec:
+      containers:
+      - image: andrihurabaquino/orders-service-example:latest
+        name: orders-service-container

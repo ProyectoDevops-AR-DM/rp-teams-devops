@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: orders-service
+  name: orders-service
+spec:
+  containers:
+  - name: orders-service-container
+    image: andrihurabaquino/orders-service-example:latest
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
