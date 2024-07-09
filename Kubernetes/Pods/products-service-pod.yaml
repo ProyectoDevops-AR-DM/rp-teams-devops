@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: products-service-example
+  name: products-service-ecample
+spec:
+  containers:
+  - name: products-service-container
+    image: andrihurabaquino/products-service-example:latest
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
