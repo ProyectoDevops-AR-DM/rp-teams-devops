@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: svc-orders-service
+  name: orders-service-service
 spec:
   type: LoadBalancer
   selector:
@@ -9,4 +9,4 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 80
+      targetPort: 8080

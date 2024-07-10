@@ -1,32 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: orders-service-deployment
   name: orders-service-deployment
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
-      app: orders-service-deployment
-  strategy: {}
+      app: orders-service
   template:
     metadata:
       labels:
-        app: orders-service-deployment
+        app: orders-service
     spec:
       containers:
-      - image: andrihurabaquino/orders-service-example:latest
-        name: orders-service-container
-        livenessProbe:
-          httpGet:
-            path: /orders
-            port: 80
-          initialDelaySeconds: 30
-          periodSeconds: 10
-        readinessProbe:
-          httpGet:
-            path: /
-            port: 80
-          initialDelaySeconds: 5
-          periodSeconds: 10
+      - name: orders-service
+        image: andrihurabaquino/orders-service-example:latest
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
