@@ -18,3 +18,15 @@ spec:
       containers:
       - image: andrihurabaquino/products-service-example:latest
         name: products-service-container
+        livenessProbe:
+          httpGet:
+            path: /products
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10

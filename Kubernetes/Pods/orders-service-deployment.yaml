@@ -8,13 +8,25 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: orders-service
+      app: orders-service-deployment
   strategy: {}
   template:
     metadata:
       labels:
-        app: orders-service
+        app: orders-service-deployment
     spec:
       containers:
       - image: andrihurabaquino/orders-service-example:latest
         name: orders-service-container
+        livenessProbe:
+          httpGet:
+            path: /orders
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
