@@ -1,1 +1,2 @@
 # rp-teams-devops
+ Al ejecutar la creacion del ambiente por terraform se debe de utilizar el comando terraform apply -var-file="dev.tfvars"  en el parametro file debemos especificar el archivo del ambiente que deseamos desplegar
