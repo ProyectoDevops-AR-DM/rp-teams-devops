@@ -1,32 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: products-service-deployment
   name: products-service-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
       app: products-service
-  strategy: {}
   template:
     metadata:
       labels:
         app: products-service
     spec:
       containers:
-      - image: andrihurabaquino/products-service-example:latest
-        name: products-service-container
-        livenessProbe:
-          httpGet:
-            path: /products
-            port: 80
-          initialDelaySeconds: 30
-          periodSeconds: 10
-        readinessProbe:
-          httpGet:
-            path: /
-            port: 80
-          initialDelaySeconds: 5
-          periodSeconds: 10
+      - name: products-service
+        image: andrihurabaquino/products-service-example:latest
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        
