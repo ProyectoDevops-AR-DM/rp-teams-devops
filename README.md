@@ -10,12 +10,9 @@
 
 Certificado de DevOps  
 
----
-  
-
 Estudiantes grupo 10 :  
 
-Diego Martinez – Andriuh Rabaquino
+Diego Martinez (258343) – Andrihu Rabaquino (272028)
 
 Tutor: Federico Barceló  
 **2024**<div>
@@ -56,7 +53,7 @@ Se busca mejorar la comunicación y colaboración, eliminar barreras en los fluj
 </div>
 
 
-***
+---
 
 ### Planteamiento para la resolución del problema
 
@@ -112,7 +109,10 @@ El planteamiento para la resolución del problema se basa en la implementación 
 
 ***
 
-## Proyecto
+
+<h2 style="border: none;">Proyecto</h2>
+
+
 ### Herramientas y justificación del uso.
 
 <div align="left">
@@ -195,13 +195,11 @@ El planteamiento para la resolución del problema se basa en la implementación 
 
 **Trunk-Based DevOps**
 
-Diagrama de Trunk-Based Development:
-
 1. Ramas estables:
    - master: Contiene el código listo para producción.
    - release: Para lanzar versiones estables del software.
 
-Trunk-Based Development promueve la integración continua y el despliegue continuo, facilitando una entrega rápida y eficiente del software.
+Trunk-Based promueve la integración continua y el despliegue continuo, facilitando una entrega rápida y eficiente del software.
 
 
 **Diagrama** 
@@ -220,9 +218,10 @@ Trunk-Based Development promueve la integración continua y el despliegue contin
 <div align="left">
 
 **Semana 1**
-
+![Semana 1](/images/Semana%201.PNG)
 
 **Semana 2**
+![Semana 2](/images/Semana%202.PNG)
 
 
 **Semana 3**
