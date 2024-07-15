@@ -1,0 +1,5 @@
+aws_region       = "us-east-1"
+aws_access_key   = "ASIAQLXGZ6CP7ZKSBJ67"
+aws_secret_key   = "DW7O6oh3WwyAbORrEUpN9uRl5RzQZlC1RTSgtvhn"
+aws_session_token = ""
+bucket_name      = "angular-oblig-develop"
