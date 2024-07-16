@@ -333,25 +333,7 @@ El flujo de trabajo CI/CD para el backend se activa automáticamente cuando se h
 
 <div align="left">
 
-**FrontEnd**
-
-El proceso de despliegue para el frontend se lleva a cabo mediante GitHub Actions y AWS S3. Se activa automáticamente cuando se hace un commit en las ramas `develop`, `release` o `main`. Los pasos principales son:
-
-1. **Checkout del Código:** Se clona el repositorio.
-2. **Configuración de AWS CLI:** Se configuran las credenciales de AWS necesarias para interactuar con S3.
-3. **Descarga de Artefactos:** Se descargan los artefactos de construcción generados previamente.
-4. **Sincronización con S3:** Los artefactos se sincronizan con el bucket S3 correspondiente a la rama (`develop`, `release`, `main`).
-
-
-**BackEnd**
-
-El proceso de despliegue para el backend también se gestiona mediante GitHub Actions, Docker Hub y AWS EKS. Se activa automáticamente cuando se hace un commit en las ramas `develop`, `release` o `main`. Los pasos principales son:
-
-1. **Checkout del Código:** Se clona el repositorio.
-2. **Configuración de AWS CLI y Kubernetes CLI:** Se configuran las credenciales de AWS y se actualiza el archivo kubeconfig para el cluster EKS.
-3. **Validación del YAML de Despliegue:** Se valida el archivo de despliegue YAML para asegurarse de que no haya errores.
-4. **Despliegue en Kubernetes:** Se aplica el archivo de despliegue YAML en el cluster Kubernetes.
-5. **Prueba del Endpoint de la API:** Se prueba el endpoint de la API para verificar que el servicio esté funcionando correctamente.
+El despliegue de la aplicación, tanto para el frontend como para el backend, se realiza automáticamente a través de GitHub Actions. Dependiendo de la rama (`develop`, `release`, `main`), los artefactos de construcción se despliegan en los entornos configurados utilizando AWS S3, Docker Hub y AWS EKS. Este proceso asegura una entrega continua y eficiente de las nuevas versiones de la aplicación, manteniendo la consistencia y disponibilidad en los entornos de desarrollo, prueba y producción.
 
 ---
 </div>
