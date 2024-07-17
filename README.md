@@ -285,8 +285,9 @@ El flujo de trabajo CI/CD se activa automáticamente cuando se hace un commit en
 
 > **BackEnd**
 
-El flujo de trabajo CI/CD para el backend se activa automáticamente cuando se hace un commit en las ramas `develop`, `release` o `main`. Cada rama tiene su propio archivo de workflow en GitHub Actions. El flujo de trabajo consta de cuatro instancias principales: `build`, `sonarcloud`, `build_and_deploy_dockerhub` y `deploy`.
+El flujo de trabajo CI/CD para el backend se activa automáticamente cuando se hace un commit en las ramas `develop`, `release` o `main`. El trabajo de todas las ramas se ejecutas desde un mismo archivo de trabajo. El flujo de trabajo consta de cuatro instancias principales: `build`, `sonarcloud`, `build_and_deploy_dockerhub` y `deploy and test endpoint`.
 
+[Diagrama CI/CD](/Diagramas/CI/diagrama-back-end.png)
 
 **Descripción:**
 - **Objetivo:** Construir el proyecto utilizando Maven.
@@ -324,13 +325,15 @@ El flujo de trabajo CI/CD para el backend se activa automáticamente cuando se h
 ### 4. Instancia de Deploy
 
 **Descripción:**
-- **Objetivo:** Desplegar la imagen Docker en Kubernetes utilizando AWS EKS.
+- **Objetivo:** Desplegar la imagen Docker en Kubernetes utilizando AWS EKS y realizar el Test de endpoint.
 - **Pasos:** 
   - Se realiza el checkout del código fuente.
   - Se configura AWS CLI y kubectl.
   - Se actualiza el archivo kubeconfig con la configuración del cluster EKS.
   - Se valida el archivo de despliegue YAML y se aplica en Kubernetes.
-  - Se prueba el endpoint de la API para verificar el despliegue.
+  - Se despliega el balanceador del servicio. 
+  - Se obtiene la url brindad por el balanceador 
+  - Se realiza la prueba de endpoint utlizando postman y newman. 
 - **Dependencia:** Este job se ejecuta después de que la instancia de build_and_deploy_dockerhub haya finalizado correctamente.
 - **Rama:** Esta instancia se ejecuta en la rama correspondiente (`develop`, `release` o `main`).
 
@@ -376,7 +379,10 @@ SonarCloud se utiliza como una herramienta de análisis de código estático par
 <br>
 
 **BackEnd**
-
+**products-service**
+![products sonar passed](/Evidencia/Sonarcloud/Products/products-index.PNG)
+![products sonar details](/Evidencia/Sonarcloud/Products/details.PNG)
+![Products sonar branches](/Evidencia/Sonarcloud/Products/branches.PNG)
 
 ---
 
@@ -407,6 +413,26 @@ Se define tres archivos,  `main.tf`, `variables.tf` y `terraform.tf`
 <br>
 
 **BackEnd**
+
+En el caso del back tambien utilizamos terraform para crear los servicios que crean los ambientes para el correcto funcionamiento del sistema. 
+Definimos 5 archivos, `main.tf`, `variables.tf`, `develop.tfvars`, `release.tfvars` y `prod.tfvars`
+
+- main.tf: Define los servicios que se crearan en aws con sus respectivas caracteristicas (Nombre, zona de disponibilidad, tipo de instancia, etc). Los servicios que creara son los siguiente: 
+            - Se creara una VPC, con 2 subredes (La subredes estaran en distintos puntos de disponibilidad), una tabla de enrutamiento, una internet gateway.
+            - Se creara un EKS con asociada a la VPC y su grupo de nodos. 
+- variables.tf: Define variable que corresponden a las caracteristicas de los componentes a crear como por ejemplo: Nombre del componente, rango de la sub red, version del eks etc. 
+- develop.tfvars: Asocia los valores a las variables para desplegar el ambiente de Develop
+- release.tfvars: Asocia los valores a las variables para desplegar el ambiente de release
+- prod.tfvars: Asocia los valores para desplegar el ambiente de produccion. 
+
+- *Aclaracion* es importante que a la hora de ejecutar terraform se especifique el archivo de variable de la siguiente forma: terraform apply -var-file="release.tfvars"
+
+- Decidimos utilizar esta estructura de terraform ya que les permitira desplegar ambiente deseados de manera muy sencilla y agil. 
+
+**Diagrama**
+[Diagrama AWS](/Diagramas/aws/infra-backend.png)
+
+
 
 
 ---
@@ -465,6 +491,8 @@ A continuación, se detallan las rutas configuradas:
 
 > [!WARNING]
 > Antes del uso asegúrarse de que los servicios backend están correctamente desplegados en sus ambientes
+> Si se hace alguna modificacion en el load balancer y se despliega desde 0 se debera cambiar la url de refernecia en la configuracion del API Gatway 
+
 
 
 </div>
@@ -472,6 +500,11 @@ A continuación, se detallan las rutas configuradas:
 ### Prueba Extra EndPoint
 
 <div align="left">
+Como prueba extra, decidimos realizar una prueba de endpoint a traves de postaman y newman, la misma se ejecuta luego de que se realiza el deploy en AWS para corroborar el correcto funcionamiento del servicio deployado. 
+
+[Evidencia prueba extra products](/Evidencia/Ci/rp-product-service-example/main/test%20extra.PNG)
+[Evidencia prueba extra orders](/Evidencia/Ci/rp-orders-service-example/main/test-endpoint.PNG)
+[Evidencia prueba extra shipping](/Evidencia/Ci/rp-shipping-service-example/main/test-extra.PNG)
 
 
 
