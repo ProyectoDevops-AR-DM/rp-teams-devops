@@ -250,8 +250,6 @@ El flujo de trabajo CI/CD se activa automáticamente cuando se hace un commit en
 ![CICD FrontEnd](images/CICD%20FrontEnd.png)
 
 
-
-
 ### 1. Instancia de Build
 
 **Descripción:**
@@ -292,7 +290,9 @@ El flujo de trabajo CI/CD para el backend se activa automáticamente cuando se h
 
 ![Diagrama products](Evidencia/Ci/rp-product-service-example/main/Flujo-workflow.PNG)
 
+
 ![Diagrama orders](Evidencia/Ci/rp-orders-service-example/release/flujo-de-trabajo.PNG)
+
 
 ![Diagrama shipping](Evidencia/Ci/rp-shipping-service-example/main/diagrama-workflow.PNG)
 
@@ -386,7 +386,10 @@ SonarCloud se utiliza como una herramienta de análisis de código estático par
 <br>
 
 **BackEnd**
+
+
 **products-service**
+
 ![products sonar passed](Evidencia/Sonarcloud/Products/products-index.PNG)
 
 ![products sonar details](Evidencia/Sonarcloud/Products/details.PNG)
@@ -396,13 +399,13 @@ SonarCloud se utiliza como una herramienta de análisis de código estático par
 
 
 **orders-service**
+
 ![Orders sonar passed](Evidencia/Sonarcloud/Orders-service/index.PNG)
 
 ![Orders sonar details](Evidencia/Sonarcloud/Orders-service/detalles.PNG)
 
 ![Orders sonar branches](Evidencia/Sonarcloud/Orders-service/branches.PNG)
 
-**Analisis tecnico**
 
 
 **shipping-service**
@@ -545,6 +548,8 @@ Como prueba extra, decidimos realizar una prueba de endpoint a traves de postama
 
 
 </div>
+
+<hr>
 
 ### Containers
 
