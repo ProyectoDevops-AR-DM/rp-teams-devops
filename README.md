@@ -386,7 +386,10 @@ SonarCloud se utiliza como una herramienta de análisis de código estático par
 <br>
 
 **BackEnd**
+
+
 **products-service**
+
 ![products sonar passed](Evidencia/Sonarcloud/Products/products-index.PNG)
 
 ![products sonar details](Evidencia/Sonarcloud/Products/details.PNG)
@@ -396,13 +399,13 @@ SonarCloud se utiliza como una herramienta de análisis de código estático par
 
 
 **orders-service**
+
 ![Orders sonar passed](Evidencia/Sonarcloud/Orders-service/index.PNG)
 
 ![Orders sonar details](Evidencia/Sonarcloud/Orders-service/detalles.PNG)
 
 ![Orders sonar branches](Evidencia/Sonarcloud/Orders-service/branches.PNG)
 
-**Analisis tecnico**
 
 
 **shipping-service**
@@ -471,6 +474,8 @@ Definimos 5 archivos, `main.tf`, `variables.tf`, `develop.tfvars`, `release.tfva
 </div>
 
 
+
+
 ### API Gateway con servicio Serverless
 
 <div align="left">
@@ -529,10 +534,15 @@ A continuación, se detallan las rutas configuradas:
 
 </div>
 
+
+<hr>
+
 ### Prueba Extra EndPoint
 
 <div align="left">
 Como prueba extra, decidimos realizar una prueba de endpoint a traves de postaman y newman, la misma se ejecuta luego de que se realiza el deploy en AWS para corroborar el correcto funcionamiento del servicio deployado. 
+
+
 
 ![Evidencia prueba extra products](/Evidencia/Ci/rp-product-service-example/main/test%20extra.PNG)
 
