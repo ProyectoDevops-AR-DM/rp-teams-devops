@@ -597,9 +597,9 @@ En esta seccion encontraran los links de los repositorios creados para llevar a 
 
 - <a href="https://github.com/ProyectoDevops-AR-DM"><img src="images/GitHub-logo.png" alt="Organizacion Github" Width="20" Height="30"> Organizacion ProyectoDevops-AR-DM</a>
 - <a href="https://github.com/ProyectoDevops-AR-DM/rp-teams-devops"><img src="images/GitHub-logo.png" alt="Repositorio team devops" Width="20" Height="30">  rp-team-devops</a>
-- <a href="https://github.com/ProyectoDevops-AR-DM/rp-orders-service-example"><img src="images/GitHub-logo.png" alt="Repositorio orders-service-example" Width="20" Height="30">  rp-orders-service-example</a>
-- <a href="https://github.com/ProyectoDevops-AR-DM/rp-shipping-service-example"><img src="images/GitHub-logo.png" alt="Repositorio shipping-service-example" Width="20" Height="30">  rp-shipping-service-example</a>
-- <a href="https://github.com/ProyectoDevops-AR-DM/rp-products-service-example"><img src="images/GitHub-logo.png" alt="Repositorio products-service-example" Width="20" Height="30">  rp-products-service-example</a>
-- <a href="https://github.com/ProyectoDevops-AR-DM/rp-payments-service-example"><img src="images/GitHub-logo.png" alt="Repositorio payments-service-example" Width="20" Height="30">  rp-payments-service-example</a>
+- <a href="https://github.com/ProyectoDevops-AR-DM/rp-orders-service-example"><img src="images/GitHub-logo.png" alt="Repositorio orders-service-example" Width="30" Height="20">  rp-orders-service-example</a>
+- <a href="https://github.com/ProyectoDevops-AR-DM/rp-shipping-service-example"><img src="images/GitHub-logo.png" alt="Repositorio shipping-service-example" Width="30" Height="20">  rp-shipping-service-example</a>
+- <a href="https://github.com/ProyectoDevops-AR-DM/rp-products-service-example"><img src="images/GitHub-logo.png" alt="Repositorio products-service-example" Width="30" Height="20">  rp-products-service-example</a>
+- <a href="https://github.com/ProyectoDevops-AR-DM/rp-payments-service-example"><img src="images/GitHub-logo.png" alt="Repositorio payments-service-example" Width="30" Height="20">  rp-payments-service-example</a>
 
 </div>
