@@ -545,3 +545,31 @@ Como prueba extra, decidimos realizar una prueba de endpoint a traves de postama
 
 
 </div>
+
+### Containers
+
+<div align="left">
+En esta seccion hablaremos del armado de los contenedores donde se despliegaran los servicio backend.
+- Se crearan 3 contenedores por medio de dockerfiles ubicados uno en cada repositorio de los servicios
+- En cada contenedor se creara un usuario con los permisos restringidos para evitar vulnerabilidades de seguridad en el container
+- Se exponen el puerto por el cual sera consumido ese servicio
+
+
+**Dockerfile products-service**
+
+![Dockerfile products-service](Evidencia/Docker/dockerfile-products.PNG)
+
+**Dockerfile orders-service** 
+
+![Dockerfile orders-service](Evidencia/Docker/dockerfile-orders-service.PNG)
+
+**Dockerfile shipping-service**
+
+![Dockerfile shipping-service](Evidencia/Docker/docker-shipping-service.PNG)
+
+Estas imagenes se crearan desde el trabajo definido en el workflow de cada repositorio llamada buil_and_deploy_in_dockerhub y en el mismo trabajo se pushean al repositorio correspondiente en Docker Hub. 
+Esta forma previa de realizar el deploy les dara la oportunidad al equipo de develop a poder ejecutar los servicios de manera local para realizar algunas pruebas, sin la necesidad de tenes que despliegar un nuevo ambiente en AWS.
+De esta forma se podran evitar gastos inecesarios por pago de cloud.  
+
+
+</div>
