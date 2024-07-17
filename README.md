@@ -389,13 +389,34 @@ SonarCloud se utiliza como una herramienta de análisis de código estático par
 **products-service**
 ![products sonar passed](Evidencia/Sonarcloud/Products/products-index.PNG)
 
-
 ![products sonar details](Evidencia/Sonarcloud/Products/details.PNG)
-
 
 ![Products sonar branches](Evidencia/Sonarcloud/Products/branches.PNG)
 
----
+
+
+**orders-service**
+![Orders sonar passed](Evidencia/Sonarcloud/Orders-service/index.PNG)
+
+![Orders sonar details](Evidencia/Sonarcloud/Orders-service/detalles.PNG)
+
+![Orders sonar branches](Evidencia/Sonarcloud/Orders-service/branches.PNG)
+
+**Analisis tecnico**
+
+
+**shipping-service**
+
+![Shipping sonar passed](Evidencia/Sonarcloud/Shipping-service-example/index.PNG)
+
+![Shipping sonar details](Evidencia/Sonarcloud/Shipping-service-example/detalles.PNG)
+
+![Shipping sonar details 1](Evidencia/Sonarcloud/Shipping-service-example/Detalles2.PNG)
+
+![Shipping sonar branches](Evidencia/Sonarcloud/Shipping-service-example/Branches.PNG)
+
+
+
 
 </div>
 
