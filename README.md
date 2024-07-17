@@ -595,7 +595,7 @@ De esta forma se podran evitar gastos inecesarios por pago de cloud.
 <div align="left">
 En esta seccion encontraran los links de los repositorios creados para llevar a cabo la solucion del proyecto. 
 
-- <a href="https://github.com/ProyectoDevops-AR-DM" style="none"><img src="images/GitHub-logo.png" alt="Organizacion Github" Width="30" Height="20"> Organizacion ProyectoDevops-AR-DM</a>
+- <a href="https://github.com/ProyectoDevops-AR-DM" text-decoration="none"><img src="images/GitHub-logo.png" alt="Organizacion Github" Width="30" Height="20"> Organizacion ProyectoDevops-AR-DM</a>
 - <a href="https://github.com/ProyectoDevops-AR-DM/rp-teams-devops"><img src="images/GitHub-logo.png" alt="Repositorio team devops" Width="30" Height="20">  rp-team-devops</a>
 - <a href="https://github.com/ProyectoDevops-AR-DM/rp-orders-service-example"><img src="images/GitHub-logo.png" alt="Repositorio orders-service-example" Width="30" Height="20">  rp-orders-service-example</a>
 - <a href="https://github.com/ProyectoDevops-AR-DM/rp-shipping-service-example"><img src="images/GitHub-logo.png" alt="Repositorio shipping-service-example" Width="30" Height="20">  rp-shipping-service-example</a>
