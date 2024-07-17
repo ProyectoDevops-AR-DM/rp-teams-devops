@@ -40,6 +40,8 @@ Tutor: Federico Barceló
   - <a href="#terraform-como-iac">Terraform como IaC</a>
   - <a href="#api-gateway-con-servicio-serverless">API Gateway con servicio Serverless</a>
   - <a href="#prueba-extra-endpoint">Prueba Extra EndPoint</a>
+  - <a href="#Containers">Containers</a>
+  - <a href="#links-de-interes">Links de interes</a>
 
 
 </div>
@@ -583,5 +585,21 @@ Estas imagenes se crearan desde el trabajo definido en el workflow de cada repos
 Esta forma previa de realizar el deploy les dara la oportunidad al equipo de develop a poder ejecutar los servicios de manera local para realizar algunas pruebas, sin la necesidad de tenes que despliegar un nuevo ambiente en AWS.
 De esta forma se podran evitar gastos inecesarios por pago de cloud.  
 
+
+</div>
+
+<hr>
+
+### Links de interes
+
+<div align="left">
+En esta seccion encontraran los links de los repositorios creados para llevar a cabo la solucion del proyecto. 
+
+- <a href="https://github.com/ProyectoDevops-AR-DM"><img src="images/GitHub-logo.png" alt="Organizacion Github" Width="50" Height="50"> Organizacion ProyectoDevops-AR-DM</a>
+- <a href="https://github.com/ProyectoDevops-AR-DM/rp-teams-devops"><img src="images/GitHub-logo.png" alt="Repositorio team devops" Width="50" Height="50">  rp-team-devops</a>
+- <a href="https://github.com/ProyectoDevops-AR-DM/rp-orders-service-example"><img src="images/GitHub-logo.png" alt="Repositorio orders-service-example" Width="50" Height="50">  rp-orders-service-example</a>
+- <a href="https://github.com/ProyectoDevops-AR-DM/rp-shipping-service-example"><img src="images/GitHub-logo.png" alt="Repositorio shipping-service-example" Width="50" Height="50">  rp-shipping-service-example</a>
+- <a href="https://github.com/ProyectoDevops-AR-DM/rp-products-service-example"><img src="images/GitHub-logo.png" alt="Repositorio products-service-example" Width="50" Height="50">  rp-products-service-example</a>
+- <a href="https://github.com/ProyectoDevops-AR-DM/rp-payments-service-example"><img src="images/GitHub-logo.png" alt="Repositorio payments-service-example" Width="50" Height="50">  rp-payments-service-example</a>
 
 </div>
