@@ -287,7 +287,14 @@ El flujo de trabajo CI/CD se activa automáticamente cuando se hace un commit en
 
 El flujo de trabajo CI/CD para el backend se activa automáticamente cuando se hace un commit en las ramas `develop`, `release` o `main`. El trabajo de todas las ramas se ejecutas desde un mismo archivo de trabajo. El flujo de trabajo consta de cuatro instancias principales: `build`, `sonarcloud`, `build_and_deploy_dockerhub` y `deploy and test endpoint`.
 
-[Diagrama CI/CD](/Diagramas/CI/diagrama-back-end.png)
+![Diagrama CI/CD](Diagramas/CI/diagrama-back-end.png)
+
+
+![Diagrama products](Evidencia/Ci/rp-product-service-example/main/Flujo-workflow.PNG)
+
+![Diagrama orders](Evidencia/Ci/rp-orders-service-example/release/flujo-de-trabajo.PNG)
+
+![Diagrama shipping](Evidencia/Ci/rp-shipping-service-example/main/diagrama-workflow.PNG)
 
 **Descripción:**
 - **Objetivo:** Construir el proyecto utilizando Maven.
@@ -380,9 +387,13 @@ SonarCloud se utiliza como una herramienta de análisis de código estático par
 
 **BackEnd**
 **products-service**
-![products sonar passed](/Evidencia/Sonarcloud/Products/products-index.PNG)
-![products sonar details](/Evidencia/Sonarcloud/Products/details.PNG)
-![Products sonar branches](/Evidencia/Sonarcloud/Products/branches.PNG)
+![products sonar passed](Evidencia/Sonarcloud/Products/products-index.PNG)
+
+
+![products sonar details](Evidencia/Sonarcloud/Products/details.PNG)
+
+
+![Products sonar branches](Evidencia/Sonarcloud/Products/branches.PNG)
 
 ---
 
@@ -430,7 +441,7 @@ Definimos 5 archivos, `main.tf`, `variables.tf`, `develop.tfvars`, `release.tfva
 - Decidimos utilizar esta estructura de terraform ya que les permitira desplegar ambiente deseados de manera muy sencilla y agil. 
 
 **Diagrama**
-[Diagrama AWS](/Diagramas/aws/infra-backend.png)
+![Diagrama AWS](Diagramas/aws/infra-backend.png)
 
 
 
@@ -502,9 +513,13 @@ A continuación, se detallan las rutas configuradas:
 <div align="left">
 Como prueba extra, decidimos realizar una prueba de endpoint a traves de postaman y newman, la misma se ejecuta luego de que se realiza el deploy en AWS para corroborar el correcto funcionamiento del servicio deployado. 
 
-[Evidencia prueba extra products](/Evidencia/Ci/rp-product-service-example/main/test%20extra.PNG)
-[Evidencia prueba extra orders](/Evidencia/Ci/rp-orders-service-example/main/test-endpoint.PNG)
-[Evidencia prueba extra shipping](/Evidencia/Ci/rp-shipping-service-example/main/test-extra.PNG)
+![Evidencia prueba extra products](/Evidencia/Ci/rp-product-service-example/main/test%20extra.PNG)
+
+
+![Evidencia prueba extra orders](/Evidencia/Ci/rp-orders-service-example/main/test-endpoint.PNG)
+
+
+![Evidencia prueba extra shipping](/Evidencia/Ci/rp-shipping-service-example/main/test-extra.PNG)
 
 
 
