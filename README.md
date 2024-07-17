@@ -226,14 +226,23 @@ Trunk-Based promueve la integración continua y el despliegue continuo, facilita
 <div align="left">
 
 **Semana 1**
+
 ![Semana 1](/images/Semana%201.PNG)
 
 **Semana 2**
+
 ![Semana 2](/images/Semana%202.PNG)
 
 
 **Semana 3**
+
 ![Semana 3](/images/Semana%203.PNG)
+
+**Semana 4**
+
+![Semana 4-1](/images/Semana%204-1.PNG)
+![Semana 4-2](/images/Semana%204-2.PNG)
+![Semana 4-3](/images/Semana%204-3.PNG)
 
 
 </div>
@@ -441,11 +450,11 @@ En este caso, usamos Terraform para crear y configurar instancias de almacenamie
 
 Se define tres archivos,  `main.tf`, `variables.tf` y `terraform.tf`
 
-- main.tf: Define los recursos específicos del bucket S3, como el nombre, configuraciones de hosting estático, versionado de objetos, y políticas de acceso.
+- `main.tf`: Define los recursos específicos del bucket S3, como el nombre, configuraciones de hosting estático, versionado de objetos, y políticas de acceso.
 
-- variables.tf: Declara variables utilizadas en main.tf, como claves de acceso de AWS, región, y nombre del bucket, permitiendo parametrizar y reutilizar la configuración.
+- `variables.tf`: Declara variables utilizadas en main.tf, como claves de acceso de AWS, región, y nombre del bucket, permitiendo parametrizar y reutilizar la configuración.
 
-- terraform.tf: Configura opciones globales de Terraform como la versión a utilizar, proveedores adicionales, y configuraciones de backend para el almacenamiento del estado.
+- `terraform.tf`: Configura opciones globales de Terraform como la versión a utilizar, proveedores adicionales, y configuraciones de backend para el almacenamiento del estado.
 
 <br>
 
@@ -454,13 +463,13 @@ Se define tres archivos,  `main.tf`, `variables.tf` y `terraform.tf`
 En el caso del back tambien utilizamos terraform para crear los servicios que crean los ambientes para el correcto funcionamiento del sistema. 
 Definimos 5 archivos, `main.tf`, `variables.tf`, `develop.tfvars`, `release.tfvars` y `prod.tfvars`
 
-- main.tf: Define los servicios que se crearan en aws con sus respectivas caracteristicas (Nombre, zona de disponibilidad, tipo de instancia, etc). Los servicios que creara son los siguiente: 
+- `main.tf`: Define los servicios que se crearan en aws con sus respectivas caracteristicas (Nombre, zona de disponibilidad, tipo de instancia, etc). Los servicios que creara son los siguiente: 
             - Se creara una VPC, con 2 subredes (La subredes estaran en distintos puntos de disponibilidad), una tabla de enrutamiento, una internet gateway.
             - Se creara un EKS con asociada a la VPC y su grupo de nodos. 
-- variables.tf: Define variable que corresponden a las caracteristicas de los componentes a crear como por ejemplo: Nombre del componente, rango de la sub red, version del eks etc. 
-- develop.tfvars: Asocia los valores a las variables para desplegar el ambiente de Develop
-- release.tfvars: Asocia los valores a las variables para desplegar el ambiente de release
-- prod.tfvars: Asocia los valores para desplegar el ambiente de produccion. 
+- `variables.tf`: Define variable que corresponden a las caracteristicas de los componentes a crear como por ejemplo: Nombre del componente, rango de la sub red, version del eks etc. 
+- `develop.tfvars`: Asocia los valores a las variables para desplegar el ambiente de Develop
+- `release.tfvars`: Asocia los valores a las variables para desplegar el ambiente de release
+- `prod.tfvars`: Asocia los valores para desplegar el ambiente de produccion. 
 
 - *Aclaracion* es importante que a la hora de ejecutar terraform se especifique el archivo de variable de la siguiente forma: terraform apply -var-file="release.tfvars"
 
@@ -470,7 +479,19 @@ Definimos 5 archivos, `main.tf`, `variables.tf`, `develop.tfvars`, `release.tfva
 ![Diagrama AWS](Diagramas/aws/infra-backend.png)
 
 
+**Api-Gateway**
 
+
+Para la integración de los servicios backend con AWS API Gateway, también utilizamos Terraform. Esta configuración permite una fácil gestión y despliegue de nuestras APIs.
+
+Definimos tres archivos, main.tf, variables.tf, y terraform.tfvars.
+
+- `main.tf`: Define los recursos específicos de API Gateway, como la API en sí, las integraciones y las rutas. Los servicios que configuramos son los siguientes:
+Una API Gateway HTTP que sirve como punto de entrada para nuestras solicitudes.
+Integraciones para los servicios backend orders (POST), shipping/{shippingId} (GET) y products (GET).
+Rutas que direccionan las solicitudes HTTP a los servicios backend apropiados.
+`variables.tf`: Declara variables utilizadas en main.tf, como claves de acceso de AWS, URI de integración de los servicios y región, permitiendo parametrizar y reutilizar la configuración.
+`terraform.tfvars`: Asigna los valores a las variables, como las claves de acceso de AWS, las URIs de los servicios backend y la región.
 
 ---
 </div>
@@ -487,6 +508,10 @@ Como servicio Serverless el proyecto utilizo API Gateway de AWS para gestionar l
 La configuración de Amazon API Gateway como un HTTP API proporciona una capa de seguridad adicional y una gestión centralizada de las rutas HTTP para nuestros servicios backend. Esto permite una mejor escalabilidad y mantenimiento de nuestros endpoints.
 
 A continuación, se detallan las rutas configuradas:
+
+### Apply Terraform
+
+![apply-terraform](images/apply-terraform.png)
 
 ### Integraciones
 
