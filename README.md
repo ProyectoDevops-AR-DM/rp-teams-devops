@@ -490,8 +490,8 @@ Definimos tres archivos, main.tf, variables.tf, y terraform.tfvars.
 Una API Gateway HTTP que sirve como punto de entrada para nuestras solicitudes.
 Integraciones para los servicios backend orders (POST), shipping/{shippingId} (GET) y products (GET).
 Rutas que direccionan las solicitudes HTTP a los servicios backend apropiados.
-`variables.tf`: Declara variables utilizadas en main.tf, como claves de acceso de AWS, URI de integración de los servicios y región, permitiendo parametrizar y reutilizar la configuración.
-`terraform.tfvars`: Asigna los valores a las variables, como las claves de acceso de AWS, las URIs de los servicios backend y la región.
+- `variables.tf`: Declara variables utilizadas en main.tf, como claves de acceso de AWS, URI de integración de los servicios y región, permitiendo parametrizar y reutilizar la configuración.
+- `terraform.tfvars`: Asigna los valores a las variables, como las claves de acceso de AWS, las URIs de los servicios backend y la región.
 
 ---
 </div>
@@ -553,9 +553,10 @@ A continuación, se detallan las rutas configuradas:
 - **Evidencia** : 
 ![products api-gateway](images/products-api-gateway.png)
 
+
 > [!WARNING]
-> Antes del uso asegúrarse de que los servicios backend están correctamente desplegados en sus ambientes
-> Si se hace alguna modificacion en el load balancer y se despliega desde 0 se debera cambiar la url de refernecia en la configuracion del API Gatway 
+Antes del uso asegúrarse de que los servicios backend están correctamente desplegados en sus ambientes
+Si se hace alguna modificacion en el load balancer y se despliega desde 0 se debera cambiar la url de refernecia en la configuracion del API Gatway 
 
 
 
