@@ -24,15 +24,22 @@ Tutor: Federico Barceló
 <br>
 <br>
 
-### Indice
 
-* Caso de estudio
-* Planteamiento para la resolución del problema
-* Objetivos
-* Proyecto
-     - Herramientas y justificación del uso
-     - Diagramas
-     - Solución propuesta y alcance en los componentes
+### Índice
+
+* <a href="#caso-de-estudio">Caso de estudio</a>
+* <a href="#planteamiento-para-la-resolución-del-problema">Planteamiento para la resolución del problema</a>
+* <a href="#objetivos">Objetivos</a>
+* <a href="#proyecto">Proyecto</a>
+  - <a href="#herramientas-y-justificación-del-uso">Herramientas y justificación del uso</a>
+  - <a href="#manejo-de-repositorios-y-estrategias-de-ramas">Manejo de repositorios y estrategias de ramas</a>
+  - <a href="#seguimiento-del-proyecto-tablero-kanban">Seguimiento del proyecto, tablero Kanban</a>
+  - <a href="#etapas-de-ci-cd">Etapas de CI/CD</a>
+  - <a href="#deployments">Deployments</a>
+  - <a href="#analisis-de-codigo-estatico-con-sonarcloud">Analisis de codigo estatico con SonarCloud</a>
+  - <a href="#terraform-como-iac">Terraform como IaC</a>
+  - <a href="#api-gateway-con-servicio-serverless">API Gateway con servicio Serverless</a>
+  - <a href="#prueba-extra-endpoint">Prueba Extra EndPoint</a>
 
 
 </div>
@@ -42,7 +49,6 @@ Tutor: Federico Barceló
 
 ----
 
-<br>
 <br>
 
  ### Caso de Estudio 
@@ -110,7 +116,7 @@ El planteamiento para la resolución del problema se basa en la implementación 
 ***
 
 
-<h2 style="border: none;">Proyecto</h2>
+<h2 style="border: none;" id="proyecto">Proyecto</h2>
 
 
 ### Herramientas y justificación del uso.
@@ -225,12 +231,14 @@ Trunk-Based promueve la integración continua y el despliegue continuo, facilita
 
 
 **Semana 3**
+![Semana 3](/images/Semana%203.PNG)
+
 
 </div>
 
 
 
-### Etapas de CI/CD
+### Etapas de CI CD
 
 <div align="left">
 
@@ -409,6 +417,54 @@ Se define tres archivos,  `main.tf`, `variables.tf` y `terraform.tf`
 
 <div align="left">
 
+Como servicio Serverless el proyecto utilizo API Gateway de AWS para gestionar las solicitudes HTTP hacia nuestros servicios backend.
+
+La configuración de Amazon API Gateway como un HTTP API proporciona una capa de seguridad adicional y una gestión centralizada de las rutas HTTP para nuestros servicios backend. Esto permite una mejor escalabilidad y mantenimiento de nuestros endpoints.
+
+A continuación, se detallan las rutas configuradas:
+
+### Integraciones
+
+![integrations api gateway](images/integrations-api-gateway.png)
+
+
+### Rutas Configuradas
+
+![routas api gateway](images/routes-api-gateway.png)
+
+
+### POST /orders
+
+- **Descripción**: Esta ruta permite la creación de nuevas órdenes.
+- **Método**: POST
+- **Endpoint**: `https://3p20eo043m.execute-api.us-east-1.amazonaws.com/orders`
+- **Parámetros**: Se debe enviar una lista de IDs en el cuerpo de la solicitud (body) en formato raw JSON. Ejemplo:
+  ```json
+  {
+    [ "321", "111" , "123" ]
+  }
+- **Evidencia** : 
+![order api-gateway](images/order-api-gateway.png)
+
+
+### GET /shipping/{shippingId}
+
+- **Descripción**: Esta ruta permite obtener información de un envío específico utilizando el ID del envío.
+- **Método**: GET
+- **Endpoint del backend**: `https://3p20eo043m.execute-api.us-east-1.amazonaws.com/shipping/{shippingId}`
+- **Evidencia** : 
+![shipping api-gateway](images/shipping-api-gateway.png)
+
+### GET /products
+
+- **Descripción**: Esta ruta permite listar todos los productos disponibles.
+- **Método**: GET
+- **Endpoint del backend**: `https://3p20eo043m.execute-api.us-east-1.amazonaws.com/products`
+- **Evidencia** : 
+![products api-gateway](images/products-api-gateway.png)
+
+> [!WARNING]
+> Antes del uso asegúrarse de que los servicios backend están correctamente desplegados en sus ambientes
 
 
 </div>
